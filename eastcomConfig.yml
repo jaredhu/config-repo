@@ -1,0 +1,15 @@
+info:
+  component: Config Samples
+endpoints:
+  restart:
+    enabled: true
+logging:
+  levels:
+    org.springframework.boot.env.PropertySourcesLoader: TRACE
+    org.springframework.web: DEBUG
+spring:
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jaredhu/config-repo
