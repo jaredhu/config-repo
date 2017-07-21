@@ -1,5 +1,5 @@
 info:
-  component: Config Samples
+  component: Config Samples Test
 endpoints:
   restart:
     enabled: true
