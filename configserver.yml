@@ -1,8 +1,29 @@
-info.description: configserver
----
+info:
+  component: Config Server
 spring:
-  profiles: cloud
-service:
-  definition:
-    metadata:
-      uri: http://${spring.application.name}.${application.domain:cfapps.io}
+  application:
+    name: configserver
+  jmx:
+    default_domain: cloud.config.server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/jaredhu/config-repo
+          repos:
+            - patterns: multi-repo-demo-*
+              uri: https://github.com/jaredhu/config-repo
+server:
+  port: 8888
+management:
+  context_path: /admin
+endpoints:
+  restart:
+    enabled: true
+logging:
+  levels:
+    org.springframework.boot.env.PropertySourcesLoader: TRACE
+    org.springframework.web: DEBUG
+
+
+
